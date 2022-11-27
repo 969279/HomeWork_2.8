@@ -8,8 +8,9 @@
 5 2 6 7
 Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 */
+int rows = ReadInt("Введите число строк: ");
+int columns = ReadInt("Введите число столбцов: ");
 
-int rows = 4, columns = 2;
 int[,] array = new int[rows, columns];
 int[] sum = new int[rows];
 
@@ -53,15 +54,20 @@ void Fill2DArray(int[,] numbers)
     }
 }
 
-void Write2DArray(int[,] array)
+void Write2DArray(int[,] numbers)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < numbers.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < numbers.GetLength(1); j++)
         {
-            Console.Write(array[i, j] + " ");
+            Console.Write(numbers[i, j] + " ");
         }
         Console.WriteLine();
     }
 }
 
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
